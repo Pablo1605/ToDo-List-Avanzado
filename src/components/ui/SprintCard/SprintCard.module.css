@@ -1,0 +1,38 @@
+.contenedorSprintCard {
+    width: 225px;
+    height: 150px;
+    background-color: #B86F26;
+    margin-left: 1.8rem;
+    margin-top: 1.5rem;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.datosSprintCard {
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botonesSprintCard {
+   display: flex;
+   align-content: space-around;
+
+}
+
+.botonesSprintCard button {
+    all: unset;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0.3rem
+}
+
+span {
+    border: 2px solid #ffffff;
+    border-radius: 0.3rem;
+    margin-left: 10px;
+}

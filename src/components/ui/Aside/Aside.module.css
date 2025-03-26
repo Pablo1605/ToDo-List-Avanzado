@@ -1,0 +1,32 @@
+.aside {
+    top: 8vh;
+    left: 0;
+    width: 15%; 
+    height: 97vh; 
+    background: rgb(112,43,0);
+    background: linear-gradient(0deg, rgba(112,43,0,1) 0%, rgba(206,81,3,1) 100%);
+    padding: 1rem; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); 
+}
+
+.asideButton button {
+    background: rgb(38,38,38);
+    background: linear-gradient(0deg, rgba(38,38,38,1) 0%, rgba(56,56,56,1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 225px;
+    height: 75px;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    margin-left: 1.8rem;
+    margin-top: 2rem;
+    color: #ffffff;
+    font-size: 2rem;
+}
+
+span {
+    border: 2px solid #ffffff;
+    border-radius: 0.3rem;
+    margin-left: 10px;
+}
