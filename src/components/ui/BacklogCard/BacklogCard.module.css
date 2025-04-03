@@ -1,5 +1,5 @@
 .containerBacklogCard {
-    width: 65vw;
+    width: 67.5vw;
     height: 80px;
     background-color: #383838;
     border-radius: 0.3rem;
@@ -9,8 +9,20 @@
     align-items: center;
 }
 
-.containerBacklogCard h3{
-    margin-left: 2rem;
+.data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.data h4 {
+    font-size: 1.5rem;
+    margin-left: 1rem;
+}
+.data p {
+    font-size: 1rem;
+    margin-left: 1rem;
 }
 
 .botonCard {
@@ -28,14 +40,14 @@
     margin: 0.3rem
 }
 
-.botonEnviar {
+.botonesEstado {
     width: 25vw;
     height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.botonEnviar button{
+.botonesEstado .enviar{
     width: 90px;
     height: 40px;
     background-color: #D9D9D9;
@@ -45,3 +57,20 @@
     align-items: center;
     justify-content: center
 }
+
+.botonesEstado .enviar:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.botonesEstado .estado {
+    width: 120px;
+    height: 40px;
+    background-color: #D9D9D9;
+    color: #555555;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+  
