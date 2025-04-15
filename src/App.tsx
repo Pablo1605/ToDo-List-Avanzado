@@ -8,8 +8,8 @@ function App() {
 
   return (
     <div style={{ display: "flex" }}>
-      <Aside />
       {currentScreen === "backlog" ? <BacklogMain /> : <SprintMain />}
+      <Aside />
     </div>
   );
 }

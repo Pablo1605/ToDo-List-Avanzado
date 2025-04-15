@@ -1,11 +1,11 @@
 import axios from "axios";
 import { ITask } from "../types/ITask";
-import { API_URL } from "../.env/const";
 import { putBacklog } from "../http/backlog";
 
 export const getTasksController = async (): Promise<ITask[] | undefined> => {
 	try {
-		const response = await axios.get<{ tasks: ITask[] }>(API_URL);
+		const BACKLOG_API = import.meta.env.VITE_BACKLOG_ENDPOINT;
+		const response = await axios.get<{ tasks: ITask[] }>(BACKLOG_API);
 		return response.data.tasks;
 	} catch (error) {
 		console.log("Error en getTasksController:", error);

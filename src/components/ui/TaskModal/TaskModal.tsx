@@ -5,6 +5,7 @@ import { ITask } from "../../../types/ITask";
 import { taskStore } from "../../../store/taskStore";
 
 type ITaskModal = {
+ 
   handleCloseModalTask: () => void;
 };
 
@@ -54,11 +55,11 @@ export const TaskModal: FC<ITaskModal> = ({ handleCloseModalTask }) => {
       <div className={styles.containerSecundarioModal}>
         <h1>{activeTask ? "Editar Tarea" : "Crear Tarea"}</h1>
         <form onSubmit={handleSubmit} className={styles.datosTarea}>
-          Título
+          <label>Título</label>
           <input value={formValues.titulo} onChange={handleChange} type="text" required autoComplete="off" name="titulo" />
-          Descripción
+          <label>Descripción</label>
           <textarea value={formValues.descripcion} onChange={handleChange} required name="descripcion" />
-          Fecha Límite
+          <label>Fecha Límite</label>
           <input value={formValues.fechaLimite} onChange={handleChange} type="date" required autoComplete="off" name="fechaLimite" />
           <div className={styles.botones}>
             <button type='button' onClick={handleCancelSubmit} className={styles.botonCancelar}>Cancelar</button>
