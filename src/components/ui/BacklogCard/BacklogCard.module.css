@@ -40,37 +40,16 @@
     margin: 0.3rem
 }
 
-.botonesEstado {
-    width: 25vw;
-    height: 50px;
+.botonCard .sendButton {
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-.botonesEstado .enviar{
+    color: #555555;
+    border-radius: 0.5rem;
     width: 90px;
     height: 40px;
     background-color: #D9D9D9;
-    color: #555555;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center
 }
 
-.botonesEstado .enviar:hover {
+.botonCard .sendButton:hover {
     background-color: rgb(235, 235, 235);
 }
-
-.botonesEstado .estado {
-    width: 120px;
-    height: 40px;
-    background-color: #D9D9D9;
-    color: #555555;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center
-}
-
-  

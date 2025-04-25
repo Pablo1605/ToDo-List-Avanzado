@@ -1,16 +1,23 @@
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { BacklogMain } from "./components/screens/BacklogMain/BacklogMain";
 import { SprintMain } from "./components/screens/SprintMain/SprintMain";
 import { Aside } from "./components/ui/Aside/Aside";
-import { useScreenStore } from "./store/screenStore";
+import { sprintStore } from "./store/sprintStore";
 
 function App() {
-  const { currentScreen } = useScreenStore();
+  const sprints = sprintStore((state) => state.sprints);
 
   return (
-    <div style={{ display: "flex" }}>
-      {currentScreen === "backlog" ? <BacklogMain /> : <SprintMain />}
-      <Aside />
-    </div>
+    <BrowserRouter>
+      <div style={{ display: "flex" }}>
+        <Routes>
+          <Route path="/" element={<Navigate to={sprints.length > 0 ? "/sprint" : "/backlog"} />} />
+          <Route path="/backlog" element={<BacklogMain />} />
+          <Route path="/sprint" element={<SprintMain />} />
+        </Routes>
+        <Aside />
+      </div>
+    </BrowserRouter>
   );
 }
 

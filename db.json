@@ -1,12 +1,12 @@
 {
   "backlog": {
-    "tareas": [
+    "task": [
       {
-        "id": "dcec0ad4-31e0-4279-8ccf-72bd1f20b52d",
-        "titulo": "Tarea backlog",
-        "descripcion": "Descripcion tarea backlog",
-        "estado": "pendiente",
-        "fechaLimite": "2025-03-05"
+        "titulo": "vcvc",
+        "descripcion": "xccx",
+        "fechaLimite": "2025-04-26",
+        "estado": "",
+        "id": "77b4c7f8-615c-4dd1-9053-2dc3e37fa07d"
       }
     ]
   },

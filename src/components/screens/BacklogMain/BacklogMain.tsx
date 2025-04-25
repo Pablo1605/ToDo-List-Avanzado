@@ -5,6 +5,7 @@ import { BacklogCard } from "../../ui/BacklogCard/BacklogCard";
 import styles from "./BacklogMain.module.css";
 import { ITask } from "../../../types/ITask";
 import { TaskModal } from "../../ui/TaskModal/TaskModal";
+import { useSprint } from "../../../hooks/useSprint";
 
 export const BacklogMain = () => {
 
@@ -14,6 +15,13 @@ export const BacklogMain = () => {
   useEffect(() => {
     getTasks();
   }, []);
+
+  const { getSprints, sprints } = useSprint()
+
+  useEffect(() => {
+    getSprints()
+  }, [])
+
 
   const [openModalTask, setOpenModalTask] = useState(false);
 
@@ -30,7 +38,18 @@ export const BacklogMain = () => {
   const handleDeleteTask = (idTask: string) => {
     putDeleteTask(idTask)
   }
+  const { receiveBacklogTask } = useSprint()
+  const { sendTaskToSprint } = useTask()
 
+  const handleSendTaskToSprint = (taskToSend: ITask, idSprint: string) => {
+    const sprintToSend = sprints.find((sprint) => sprint.id == idSprint)
+    if (!sprintToSend) return;
+    const updatedTasks = [...sprintToSend?.tareas, taskToSend]
+
+    sendTaskToSprint(sprintToSend.id!)
+    receiveBacklogTask({ ...sprintToSend!, tareas: updatedTasks });
+    putDeleteTask(taskToSend.id!);
+  }
   return (
     <>
       <div className={styles.containerPrincipal}>
@@ -47,6 +66,7 @@ export const BacklogMain = () => {
                 handleOpenModalEdit={handleOpenModalEditTask}
                 task={el}
                 handleDeleteTask={handleDeleteTask}
+                handleSendTaskToSprint={handleSendTaskToSprint}
               />
             ))
           ) : (

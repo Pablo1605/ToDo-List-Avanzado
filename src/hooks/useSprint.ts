@@ -5,12 +5,12 @@ import { ISprint } from "../types/ISprint";
 
 export const useSprint = () => {
     const { sprints, setArraySprint, addNewSprint, updateSprint, deleteSprint } = sprintStore(useShallow((state) => ({
-            sprints: state.sprints,
-            setArraySprint: state.setArraySprint,
-            addNewSprint: state.addNewSprint,
-            updateSprint: state.updateSprint,
-            deleteSprint: state.deleteSprint,
-        }))
+        sprints: state.sprints,
+        setArraySprint: state.setArraySprint,
+        addNewSprint: state.addNewSprint,
+        updateSprint: state.updateSprint,
+        deleteSprint: state.deleteSprint,
+    }))
     );
 
     const getSprints = async () => {
@@ -56,5 +56,72 @@ export const useSprint = () => {
         }
     };
 
-    return { sprints, getSprints, addNewSprint, putUpdateSprint, putDeleteSprint };
+    const addSprintTask = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        try {
+            await updateSprintController(updatedSprint)
+            updateSprint(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en addSprintTask:", error);
+        }
+    }
+
+    const putUpdateSprintTask = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        try {
+            await updateSprintController(updatedSprint)
+            updateSprint(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en putUpdateSprintTask:", error);
+        }
+    }
+
+    const putDeleteSprintTask = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        if (previousSprint) return
+        try {
+            await updateSprintController(updatedSprint)
+            updateSprint(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en putDeleteSprintTask:", error);
+        }
+    }
+
+    const changeSprintTaskState = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        updateSprint(updatedSprint)
+        try {
+            await updateSprintController(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en changeSprintTaskState:", error);
+        }
+    }
+
+    const sendTaskToBacklog = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        try {
+            await updateSprintController(updatedSprint)
+            updateSprint(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en sendTaskToBacklog:", error);
+        }
+    }
+
+    const receiveBacklogTask = async (updatedSprint: ISprint) => {
+        const previousSprint = sprints.find((el) => el.id === updatedSprint.id)
+        try {
+            await updateSprintController(updatedSprint)
+            updateSprint(updatedSprint)
+        } catch (error) {
+            if (previousSprint) updateSprint(previousSprint)
+            console.error("Error en receiveBacklogTask:", error);
+        }
+    }
+
+    return { sprints, getSprints, addNewSprint, putUpdateSprint, putDeleteSprint, addSprintTask, putUpdateSprintTask, putDeleteSprintTask, changeSprintTaskState, sendTaskToBacklog, receiveBacklogTask };
 };

@@ -55,6 +55,27 @@ export const useTask = () => {
 			}
 		}
 	};
+	
+	const sendTaskToSprint = async (idTask: string) => {
+        const previousTask = tasks.find((el) => el.id === idTask)
+        try {
+            await deleteTaskController(idTask)
+            deleteTask(idTask)
+        } catch (error) {
+            if (previousTask) addTask(previousTask)
+				console.error("Error en sendTaskToSprint:", error);
+        }
+    }
 
-	return { tasks, getTasks, addTask, putUpdateTask, putDeleteTask };
+    const receiveSprintTask = async (nuevaTarea: ITask) => {
+        addTask(nuevaTarea)
+        try {
+            await createTaskController(nuevaTarea)
+        } catch (error) {
+            deleteTask(nuevaTarea.id!)
+            console.error("Error en receiveSprintTask:", error);
+        }
+    }
+
+	return { tasks, getTasks, addTask, putUpdateTask, putDeleteTask, sendTaskToSprint, receiveSprintTask };
 };

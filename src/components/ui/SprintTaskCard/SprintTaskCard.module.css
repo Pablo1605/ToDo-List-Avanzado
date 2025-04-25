@@ -1,0 +1,68 @@
+.containerTarea {
+    width: 18vw;
+    height: 12rem;
+    background-color: #383838;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.7rem;
+}
+
+.containerTareaData {
+    width: 16vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonesEstado {
+    width: 16vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 0.5rem;
+}
+
+.botonesEstado button {
+    width: 16vw;
+    height: 30px;
+    background-color: #D9D9D9;
+    color: #555555;
+    border-radius: 0.5rem;
+    border: none;
+    cursor: pointer;
+    margin: 0.2rem;
+}
+
+.botonesEstado button:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.botonesProgreso {
+    display: flex;
+    width: 16.312vw;
+
+}
+
+.botonesCrud {
+    width: 18vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botonesCrud button {
+    all: unset;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0.3rem
+}
+
+span {
+    border: 2px solid #ffffff;
+    border-radius: 0.3rem;
+    margin-left: 10px;
+}
